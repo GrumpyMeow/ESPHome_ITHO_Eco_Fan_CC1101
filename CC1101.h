@@ -2,11 +2,13 @@
  * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266
  */
 
+#include <stdint.h>
+
 #ifndef __CC1101_H__
 #define __CC1101_H__
 
 #include <stdio.h>
-#include <stdint.h>
+
 #include "CC1101Packet.h"
 #include <SPI.h>
 // On Arduino, SPI pins are predefined
