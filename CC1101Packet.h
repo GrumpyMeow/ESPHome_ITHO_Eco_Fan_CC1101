@@ -6,9 +6,7 @@
 #define CC1101PACKET_H_
 
 #include <stdio.h>
-#if define ESP8266 || define ESP32
 #include <Arduino.h>
-#endif
 
 #define CC1101_BUFFER_LEN        64
 #define CC1101_DATA_LEN          CC1101_BUFFER_LEN - 3
