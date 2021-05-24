@@ -2,12 +2,14 @@
  * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266
  */
 
-#ifndef CC1101PACKET_H_
-#define CC1101PACKET_H_
-
 #include <stdio.h>
 #include <stdint.h>
 #include <Arduino.h>
+
+
+#ifndef CC1101PACKET_H_
+#define CC1101PACKET_H_
+
 
 
 #define CC1101_BUFFER_LEN        64
