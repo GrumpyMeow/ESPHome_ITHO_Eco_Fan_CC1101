@@ -6,7 +6,7 @@
 #define CC1101PACKET_H_
 
 #include <stdio.h>
-#ifdef ESP8266
+#if define ESP8266 || define ESP32
 #include <Arduino.h>
 #endif
 
