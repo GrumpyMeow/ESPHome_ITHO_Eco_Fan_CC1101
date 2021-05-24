@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include "CC1101Packet.h"
-#include <spi.h>
+#include <SPI.h>
 // On Arduino, SPI pins are predefined
 
 /*	Type of transfers */
