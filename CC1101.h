@@ -6,6 +6,7 @@
 #define __CC1101_H__
 
 #include <stdio.h>
+#include <stdint.h>
 #include "CC1101Packet.h"
 #include <SPI.h>
 // On Arduino, SPI pins are predefined
