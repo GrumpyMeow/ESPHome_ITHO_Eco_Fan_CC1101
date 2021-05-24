@@ -3,6 +3,7 @@
  */
 
 #include <stdint.h>
+#include <Arduiho.h>
 
 #ifndef __CC1101_H__
 #define __CC1101_H__
