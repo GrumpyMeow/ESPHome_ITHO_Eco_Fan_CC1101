@@ -4,13 +4,13 @@
 
 
 #include <stdint.h>
+#include <stdio.h>
+#include <Arduino.h>
 
 
 #ifndef CC1101PACKET_H_
 #define CC1101PACKET_H_
 
-#include <stdio.h>
-#include <Arduino.h>
 
 
 #define CC1101_BUFFER_LEN        64
