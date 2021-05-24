@@ -8,9 +8,9 @@
 CC1101::CC1101()
 {
 	SPI.begin();
-#ifdef ESP8266
+// #ifdef ESP8266
 	pinMode(SS, OUTPUT);
-#endif
+// #endif
 } //CC1101
 
 // default destructor
