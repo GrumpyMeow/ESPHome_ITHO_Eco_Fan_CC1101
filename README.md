@@ -1,3 +1,15 @@
+# Note to self/Sander
+# Pin D1 = ESP32 pin 2
+``` 
+  libraries: 
+    - SPI
+    - https://github.com/GrumpyMeow/ESPHome_ITHO_Eco_Fan_CC1101.git
+  includes: 
+    - ags01db_sensor.h
+    - itho_eco_fan/cc1101.h
+```
+
+
 # ESPHome ITHO CVE ECO-FAN 2 control
 Library for NodeMCU ESP8266 in combination with Hassio Home Assistant ESPHome ITHO Eco Fan CC1101 (Including older Eco fans!)
 
