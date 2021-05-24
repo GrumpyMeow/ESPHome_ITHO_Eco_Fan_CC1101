@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#import <Arduino.h>
+#include <Arduino.h>
 #include "CC1101Packet.h"
 #include <SPI.h>
 // On Arduino, SPI pins are predefined
