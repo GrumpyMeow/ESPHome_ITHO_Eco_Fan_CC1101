@@ -5,8 +5,6 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <Arduino.h>
-
 
 #ifndef CC1101PACKET_H_
 #define CC1101PACKET_H_
