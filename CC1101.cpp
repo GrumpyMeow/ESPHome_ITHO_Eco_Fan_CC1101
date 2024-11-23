@@ -204,8 +204,17 @@ uint8_t CC1101::receiveData(CC1101Packet* packet, uint8_t length)
 	}
 	else
 	{
+		readBurstRegister(packet->data, CC1101_RXFIFO, rxBytes);
+
+		//continue RX
+		writeCommand(CC1101_SIDLE);	//idle		
+		writeCommand(CC1101_SFRX); //flush RX buffer
+		writeCommand(CC1101_SRX); //switch to RX state	
+		
+		packet->length = rxBytes;				
+
 		//empty fifo
-		packet->length = 0;
+		//packet->length = 0;
 	}
 
 	return packet->length;
