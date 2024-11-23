@@ -1,5 +1,5 @@
 /*
- * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266
+ * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266/ESP32
  */
 
 
@@ -7,8 +7,8 @@
 #define __CC1101_H__
 
 #include <stdio.h>
-#include <stdint.h>
-#include <Arduino.h>
+#include <stdint.h>   // Added by Sander
+#include <Arduino.h>  // Added by Sander
 #include "CC1101Packet.h"
 #include <SPI.h>
 // On Arduino, SPI pins are predefined
