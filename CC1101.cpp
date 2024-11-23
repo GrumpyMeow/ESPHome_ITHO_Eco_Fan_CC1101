@@ -181,7 +181,6 @@ void CC1101::readBurstRegister(uint8_t* buffer, uint8_t address, uint8_t length)
 //wait for fixed length in rx fifo
 uint8_t CC1101::receiveData(CC1101Packet* packet, uint8_t length)
 {
-	ESP_LOGD("custom","receiveData");
 	uint8_t rxBytes = readRegisterWithSyncProblem(CC1101_RXBYTES, CC1101_STATUS_REGISTER);
 	rxBytes = rxBytes & CC1101_BITS_RX_BYTES_IN_FIFO;
 	
@@ -205,6 +204,7 @@ uint8_t CC1101::receiveData(CC1101Packet* packet, uint8_t length)
 	}
 	else
 	{
+		digitalWrite(2,HIGH);
 		//empty fifo
 		packet->length = 0;
 	}
