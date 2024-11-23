@@ -1,5 +1,5 @@
 /*
- * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266/ESP32
+ * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266
  */
 
 #include "IthoCC1101.h"
@@ -301,7 +301,7 @@ void IthoCC1101::initReceive()
 	writeRegister(CC1101_AGCCTRL2 ,0x43);
 	writeRegister(CC1101_AGCCTRL1 ,0x40);
 	writeRegister(CC1101_AGCCTRL0 ,0x91);
-	writeRegister(CC1101_FSCAL3 ,0xA9);                    // For newer models 0xE9 (> 2011))
+	writeRegister(CC1101_FSCAL3 ,0xA9);
 	writeRegister(CC1101_FSCAL2 ,0x2A);
 	writeRegister(CC1101_FSCAL1 ,0x00);
 	writeRegister(CC1101_FSCAL0 ,0x11);                    // For newer models 0x1F (> 2011))
@@ -355,7 +355,7 @@ void  IthoCC1101::initReceiveMessage2(IthoMessageType expectedMessageType)
 
 	//set fifo mode with fixed packet length and sync bytes
 	writeRegister(CC1101_PKTCTRL0 ,0x00);
-	writeRegister(CC1101_SYNC1 ,170);			//message2 byte6 (172 for newer models (> 2011))
+	writeRegister(CC1101_SYNC1 ,170);			//message2 byte6
 	writeRegister(CC1101_SYNC0 ,171);			//message2 byte7
 	writeRegister(CC1101_MDMCFG2 ,0x02);
 	writeRegister(CC1101_PKTCTRL1 ,0x00);
@@ -372,7 +372,6 @@ void  IthoCC1101::initReceiveMessage2(IthoMessageType expectedMessageType)
 
 bool IthoCC1101::checkForNewPacket()
 {
-	ESP_LOGD("custom","checkForNewPacket");
 	if (receiveData(&inMessage2, 42))
 	{
 		parseMessageCommand();
