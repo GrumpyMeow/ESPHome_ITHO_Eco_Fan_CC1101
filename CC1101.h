@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 // # include <stdint.h>   // Added by Sander
-// # include <Arduino.h>  // Added by Sander
+#include <Arduino.h>  // Added by Sander
 #include "CC1101Packet.h"
 #include <SPI.h>
 // On Arduino, SPI pins are predefined
