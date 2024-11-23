@@ -372,6 +372,7 @@ void  IthoCC1101::initReceiveMessage2(IthoMessageType expectedMessageType)
 
 bool IthoCC1101::checkForNewPacket()
 {
+	ESP_LOGD("custom","checkForNewPacket");
 	if (receiveData(&inMessage2, 42))
 	{
 		parseMessageCommand();
