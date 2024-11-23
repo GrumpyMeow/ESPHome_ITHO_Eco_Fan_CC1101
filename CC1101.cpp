@@ -1,5 +1,5 @@
 /*
- * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266
+ * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266/ESP32
  */
 
 #include "CC1101.h"
