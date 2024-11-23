@@ -3,7 +3,7 @@
  */
 
 #include "CC1101.h"
-
+#define SS 5
 // default constructor
 CC1101::CC1101()
 {
