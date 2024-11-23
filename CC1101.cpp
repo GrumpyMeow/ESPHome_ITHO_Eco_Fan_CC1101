@@ -3,7 +3,6 @@
  */
 
 #include "CC1101.h"
-#include "esphome.h"
 
 // default constructor
 CC1101::CC1101()
