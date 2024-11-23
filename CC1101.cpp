@@ -57,6 +57,7 @@ void CC1101::reset()
 
 uint8_t CC1101::writeCommand(uint8_t command) 
 {
+	ESP_LOGD("custom","writeCommand %d",command);
 	uint8_t result;
 	
 	select();
