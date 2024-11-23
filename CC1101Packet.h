@@ -3,16 +3,16 @@
  */
 
 
-#include <stdint.h>  // Added by Sander
-#include <stdio.h>   // Added by Sander
+// # include <stdint.h>  // Commented Added by Sander
+// # include <stdio.h>   // Commented Added by Sander
 
 #ifndef CC1101PACKET_H_
 #define CC1101PACKET_H_
 
-// #include <stdio.h> // commented by Sander 
-// #ifdef ESP8266     // commented by Sander
-// #include <Arduino.h>    // commented by Sander
-// #endif    // commented by Sander
+#include <stdio.h> // was commented by Sander 
+#ifdef ESP8266     // was commented by Sander
+ #include <Arduino.h>    // wascommented by Sander
+#endif    // was commented by Sander
 
 #define CC1101_BUFFER_LEN        64
 #define CC1101_DATA_LEN          CC1101_BUFFER_LEN - 3
