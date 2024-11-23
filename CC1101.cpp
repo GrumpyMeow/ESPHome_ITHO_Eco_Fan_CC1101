@@ -57,7 +57,6 @@ void CC1101::reset()
 
 uint8_t CC1101::writeCommand(uint8_t command) 
 {
-	ESP_LOGD("custom","writeCommand %d",command);
 	uint8_t result;
 	
 	select();
@@ -184,7 +183,6 @@ uint8_t CC1101::receiveData(CC1101Packet* packet, uint8_t length)
 {
 	uint8_t rxBytes = readRegisterWithSyncProblem(CC1101_RXBYTES, CC1101_STATUS_REGISTER);
 	rxBytes = rxBytes & CC1101_BITS_RX_BYTES_IN_FIFO;
-	ESP_LOGD("custom","receiveData %d", rxBytes);
 	
 	//check for rx fifo overflow
 	if ((readRegisterWithSyncProblem(CC1101_MARCSTATE, CC1101_STATUS_REGISTER) & CC1101_BITS_MARCSTATE) == CC1101_MARCSTATE_RXFIFO_OVERFLOW)
