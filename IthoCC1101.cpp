@@ -1,5 +1,5 @@
 /*
- * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266
+ * Author: Klusjesman, modified bij supersjimmie for Arduino/ESP8266/ESP32
  */
 
 #include "IthoCC1101.h"
@@ -283,7 +283,8 @@ void IthoCC1101::initReceive()
 	writeRegister(CC1101_FREQ1 ,0x65);
 	writeRegister(CC1101_FREQ0 ,0x6A);
 	writeRegister(CC1101_IOCFG0 ,0x2E);			//High impedance (3-state)
-	writeRegister(CC1101_IOCFG2 ,0x00);			//Assert when RX FIFO is filled or above the RX FIFO threshold. Deassert when (0x00): RX FIFO is drained below threshold, or (0x01): deassert when RX FIFO is empty.
+	writeRegister(CC1101_IOCFG2 , 0x06);      //ESPEASY: 0x06 Assert when sync word has been sent / received, and de-asserts at the end of the packet.
+	//writeRegister(CC1101_IOCFG2 ,0x00);			//Assert when RX FIFO is filled or above the RX FIFO threshold. Deassert when (0x00): RX FIFO is drained below threshold, or (0x01): deassert when RX FIFO is empty.
 	writeRegister(CC1101_FSCTRL1 ,0x06);
 	writeRegister(CC1101_FSCTRL0 ,0x00);
 	writeRegister(CC1101_MDMCFG4 ,0x5A);                    // For newer models 0xE8 (> 2011))	
@@ -301,7 +302,8 @@ void IthoCC1101::initReceive()
 	writeRegister(CC1101_AGCCTRL2 ,0x43);
 	writeRegister(CC1101_AGCCTRL1 ,0x40);
 	writeRegister(CC1101_AGCCTRL0 ,0x91);
-	writeRegister(CC1101_FSCAL3 ,0xA9);
+	writeRegister(CC1101_FSCAL3 , 0xE9); //ESPEASY
+	//writeRegister(CC1101_FSCAL3 ,0xA9);
 	writeRegister(CC1101_FSCAL2 ,0x2A);
 	writeRegister(CC1101_FSCAL1 ,0x00);
 	writeRegister(CC1101_FSCAL0 ,0x11);                    // For newer models 0x1F (> 2011))	
