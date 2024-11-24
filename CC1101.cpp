@@ -8,13 +8,7 @@
 CC1101::CC1101()
 {
 	SPI.begin();
-#ifdef ESP8266
 	pinMode(SS, OUTPUT);
-#endif
-#ifdef ESP32
-	pinMode(SS, OUTPUT);
-#endif
-
 } //CC1101
 
 // default destructor
@@ -148,7 +142,6 @@ uint8_t CC1101::readRegister(uint8_t address, uint8_t registerType)
 		case CC1101_WORTIME1:
 		case CC1101_WORTIME0:	
 			return readRegisterWithSyncProblem(address, registerType);	
-			
 		default:
 			return readRegister(address | registerType);
 	}
