@@ -1000,10 +1000,10 @@ String IthoCC1101::getLastIDstr(bool ashex) {
 
 String IthoCC1101::getLastMessage2str(bool ashex) {
     String str = "Length="+ String(inMessage2.length) + ".";
-    for (uint8_t i=0; i<inMessage2.length;i++) {
-        if (ashex) str += String(inMessage2.data[i], HEX);
-        else str += String(inMessage2.data[i]);
-		if (i<inMessage2.length-1) str += ":";
-    }
+  //   for (uint8_t i=0; i<inMessage2.length;i++) {
+  //       if (ashex) str += String(inMessage2.data[i], HEX);
+  //       else str += String(inMessage2.data[i]);
+		// if (i<inMessage2.length-1) str += ":";
+  //   }
     return str;
 }
