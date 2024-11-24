@@ -8,9 +8,13 @@
 CC1101::CC1101()
 {
 	SPI.begin();
-//#if define ESP8266 || define ESP32
+#ifdef ESP8266
 	pinMode(SS, OUTPUT);
-//#endif
+#endif
+#ifdef ESP32
+	pinMode(SS, OUTPUT);
+#endif
+
 } //CC1101
 
 // default destructor
@@ -184,7 +188,7 @@ uint8_t CC1101::receiveData(CC1101Packet* packet, uint8_t length)
 	uint8_t rxBytes = readRegisterWithSyncProblem(CC1101_RXBYTES, CC1101_STATUS_REGISTER);
 	rxBytes = rxBytes & CC1101_BITS_RX_BYTES_IN_FIFO;
 	
-	//check for rx fifo overflow
+	// check for rx fifo overflow
 	if ((readRegisterWithSyncProblem(CC1101_MARCSTATE, CC1101_STATUS_REGISTER) & CC1101_BITS_MARCSTATE) == CC1101_MARCSTATE_RXFIFO_OVERFLOW)
 	{
 		writeCommand(CC1101_SIDLE);	//idle
@@ -194,21 +198,21 @@ uint8_t CC1101::receiveData(CC1101Packet* packet, uint8_t length)
 	else if (rxBytes == length)
 	{
 		readBurstRegister(packet->data, CC1101_RXFIFO, rxBytes);
-
-		//continue RX
-		writeCommand(CC1101_SIDLE);	//idle		
-		writeCommand(CC1101_SFRX); //flush RX buffer
-		writeCommand(CC1101_SRX); //switch to RX state	
-		
 		packet->length = rxBytes;				
+
+		// continue RX
+		writeCommand(CC1101_SIDLE);	// idle		
+		writeCommand(CC1101_SFRX);      // flush RX buffer
+		writeCommand(CC1101_SRX);       // switch to RX state	
 	}
 	else
 	{
-		//empty fifo
-		//packet->length = 0;
-		writeCommand(CC1101_SIDLE); //idle    
+		// empty fifo
+		writeCommand(CC1101_SIDLE);	//idle		
 		writeCommand(CC1101_SFRX); //flush RX buffer
-		writeCommand(CC1101_SRX); //switch to RX state    
+		writeCommand(CC1101_SRX); //switch to RX state
+		//packet->length = 0;
+		packet->length = rxBytes;
 	}
 
 	return packet->length;
